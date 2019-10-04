@@ -150,7 +150,7 @@ Create a pull request when the lab is done. Submit to Canvas the URL of the repo
 | ------- | ----------- |
 | Minimal black-box tests for  ```ConstantPropagation``` with reasonable oracles | 50 |
 | ```ConstantPropagation``` Implementation | 30 |
-| White-box test framework for ```ConstantPropagation``` | 70 |
-| Decision coverage for ```ConstantPropagation``` and its visitor(s) | 30 |
-| Self-documenting tests using `@Nested`, `@Tag`, and `@DisplayName` and other names and classes to organize and communicate the test methodology | 10 |
+| White-box test framework for ```ConstantPropagation``` | 30 |
+| Decision coverage for ```ConstantPropagation``` and its visitor(s) | 60 |
+| Self-documenting tests using `@Nested`, `@Tag`, and `@DisplayName` and other names and classes to organize and communicate the test methodology | 20 |
 | Adherence to best practices (e.g., no errors, no warnings, documented code, well grouped commits, appropriate commit messages, etc.) | 10 |
