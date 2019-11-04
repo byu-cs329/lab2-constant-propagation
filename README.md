@@ -7,7 +7,7 @@ The first objective of this lab is to implement a `ConstantPropagation` class th
 The second objective of this lab is to create a test framework to test the implementation. That framework needs to accomplish the following:
 
   * Black-box functional tests for constant propagation
-  * White-box decision coverage for the constant propagation implementation: the visiter and any code in ```ContsantPropagation``` --- use mocks where appropriate to get the needed coverage
+  * White-box decision coverage for the constant propagation implementation: the visiter and any code including the folding, control flow graph, and reaching definitions --- use mocks where appropriate to get the needed coverage
   * Any additional integration deemed necessary for the system
 
 As before, the test framework should be self-documenting and make clear how the tests are organized and what part of the testing belongs too: white-box, black-box, integration.
@@ -150,7 +150,7 @@ Create a pull request when the lab is done. Submit to Canvas the URL of the repo
 | ------- | ----------- |
 | Minimal black-box tests for  ```ConstantPropagation``` with reasonable oracles | 50 |
 | ```ConstantPropagation``` Implementation | 30 |
-| White-box test framework for ```ConstantPropagation``` | 30 |
-| Decision coverage for ```ConstantPropagation``` and its visitor(s) | 60 |
+| White-box test framework for the entire implementation | 30 |
+| Decision coverage for constant folding, control flow graph construction, reaching definitions, and constant propagation | 60 |
 | Self-documenting tests using `@Nested`, `@Tag`, and `@DisplayName` and other names and classes to organize and communicate the test methodology | 20 |
 | Adherence to best practices (e.g., no errors, no warnings, documented code, well grouped commits, appropriate commit messages, etc.) | 10 |
