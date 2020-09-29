@@ -20,10 +20,8 @@ public class ConstantPropagation {
    * Performs constant propagation.
    * 
    * @param node the root node for constant propagation.
-   * @return the root node for the new propagated version of the tree.
    */
-  public static ASTNode propagate(ASTNode node) {
-    return node;
+  public static void propagate(ASTNode node) {
   }
 
   /**
@@ -42,11 +40,11 @@ public class ConstantPropagation {
     File inputFile = new File(args[0]);
     // String inputFileAsString = readFile(inputFile.toURI());
     ASTNode node = Utils.getCompilationUnit(inputFile.toURI());//parse(inputFileAsString);
-    ASTNode folded = ConstantPropagation.propagate(node);
+    ConstantPropagation.propagate(node);
 
     try {
       PrintWriter writer = new PrintWriter(args[1], "UTF-8");
-      writer.print(folded.toString());
+      writer.print(node.toString());
       writer.close();
     } catch (Exception e) {
       e.printStackTrace();
