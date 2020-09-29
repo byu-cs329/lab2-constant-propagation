@@ -4,10 +4,12 @@ import java.net.URI;
 import java.util.Objects;
 
 import org.eclipse.jdt.core.dom.ASTNode;
+import org.junit.jupiter.api.DisplayName;
 
 import edu.byu.cs329.constantfolding.Utils;
 
-public class ConstantPropagationTest {
+@DisplayName("Tests for ConstantPropagation")
+public class ConstantPropagationTests {
 
   /**
    * Get the ASTNode from compiling the named file.
