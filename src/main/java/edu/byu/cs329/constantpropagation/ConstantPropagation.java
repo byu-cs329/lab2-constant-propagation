@@ -1,82 +1,28 @@
 package edu.byu.cs329.constantpropagation;
 
+import edu.byu.cs329.constantfolding.Utils;
 import java.io.File;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
-import org.eclipse.jdt.core.dom.ASTParser;
-import org.eclipse.jdt.core.dom.ChildListPropertyDescriptor;
-import org.eclipse.jdt.core.dom.ChildPropertyDescriptor;
-import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.jdt.core.dom.SimplePropertyDescriptor;
-import org.eclipse.jdt.core.dom.StructuralPropertyDescriptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * TODO.
+ * Constant Propagation.
  * 
- * @author James Wasson
  * @author Eric Mercer
- *
  */
 public class ConstantPropagation {
 
   static final Logger log = LoggerFactory.getLogger(ConstantPropagation.class);
 
   /**
-   * Read the file at path and return its contents as a String.
+   * Performs constant propagation.
    * 
-   * @param path The location of the file to be read.
-   * @return The contents of the file as a String.
+   * @param node the root node for constant propagation.
+   * @return the root node for the new propagated version of the tree.
    */
-  private static String readFile(final URI path) {
-    try {
-      return String.join("\n", Files.readAllLines(Paths.get(path)));
-    } catch (IOException ioe) {
-      log.error(ioe.getMessage());
-    }
-    return "";
-  }
-
-  /**
-   * Parse the given source.
-   * 
-   * @param sourceString The contents of some set of Java files.
-   * @return An ASTNode representing the entire program.
-   */
-  private static ASTNode parse(final String sourceString) {
-    ASTParser parser = ASTParser.newParser(AST.JLS3);
-    parser.setKind(ASTParser.K_COMPILATION_UNIT);
-    parser.setSource(sourceString.toCharArray());
-    Map<?, ?> options = JavaCore.getOptions();
-    JavaCore.setComplianceOptions(JavaCore.VERSION_1_7, options);
-    parser.setCompilerOptions(options);
-    return parser.createAST(null);
-  }
-
-  /**
-   * Performs constant folding.
-   * 
-   * @param file URI to the input Java file
-   * @return the root ASTNode for the constant folded version of the input
-   */
-  public static ASTNode propagate(URI file) {
-
-    String inputFileAsString = readFile(file);
-    ASTNode node = parse(inputFileAsString);
-
-    // TODO: complete constant folding
-
+  public static ASTNode propagate(ASTNode node) {
     return node;
   }
 
@@ -94,7 +40,9 @@ public class ConstantPropagation {
     }
 
     File inputFile = new File(args[0]);
-    ASTNode folded = ConstantPropagation.propagate(inputFile.toURI());
+    // String inputFileAsString = readFile(inputFile.toURI());
+    ASTNode node = Utils.getCompilationUnit(inputFile.toURI());//parse(inputFileAsString);
+    ASTNode folded = ConstantPropagation.propagate(node);
 
     try {
       PrintWriter writer = new PrintWriter(args[1], "UTF-8");

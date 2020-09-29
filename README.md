@@ -20,7 +20,13 @@ Be sure to carefully read about [constant propagation](https://en.wikipedia.org/
 
 # Java Subset
 
-Use the same subset of Java as defined in **Lab0 Constant Folding**. See [README.md](https://github.com/byu-cs329/lab0-constant-folding) in the master template repository or the most updated set of language restrictions.
+Use the same subset of Java as defined in the prior labs.
+
+# Environment Setup
+
+Rather than copy over files into a new repository from the previous labs, this lab adds the previous labs as dependencies. The cuurent `pom.xml` contains the dependencies with default names. The `pom.xml` files in the prior labs may need to be modified to match the dependency names indicated in the `pom.xml` file for this lab. The `mvn install` command adds the jar file to the Maven cache. Run it for `lab0-contant-propagation` and `lab1-cfg-rd` so these are availabile the this new lab.
+
+If using Docker containers for development, then it may be necessary to put all the projects in a single directory, and then open the docker container in the directory with all the projects. In this way all the projects share the same Maven cache in the container so that Maven is able to install the jar files for the dependencies. Another solution is to have docker mount the local cache in the container. Either solution works fine.
 
 # Constant Propagation
 
