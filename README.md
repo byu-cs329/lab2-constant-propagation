@@ -62,7 +62,7 @@ if (10 < c) {
 return c + (60 + a);
 ```
 
-Constant folding is not able to reduce anywhere. Reading definitions shows that only a single definition of ```a``` reaches the initializer for ```b```, and since ```a``` is assigned a literal in that definition the literal is able to replace ```a``` in the initializer. Similarly, the reference to ```a``` in the return can be replaced as well.
+Constant folding is not able to reduce anywhere. Reaching definitions shows that only a single definition of ```a``` reaches the initializer for ```b```, and since ```a``` is assigned a literal in that definition the literal is able to replace ```a``` in the initializer. Similarly, the reference to ```a``` in the return can be replaced as well.
 
 ```java
 int a = 30;
